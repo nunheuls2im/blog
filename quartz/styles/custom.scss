@@ -11,11 +11,6 @@
   font-size: 0.95rem;
 }
 
-.note-properties-header {
-  padding: 0 0 0.4rem;
-  border: 0 !important;
-}
-
 .note-properties-count {
   display: none;
 }
@@ -50,6 +45,35 @@
   color: var(--gray);
 }
 
+/* Properties 제목 및 화살표 숨김 */
+details.note-properties > summary.note-properties-header {
+  display: none !important;
+}
+
+/* tags 항목명 숨김 및 태그 영역 확장 */
+.note-properties-row:has(.note-properties-tags) {
+  grid-template-columns: minmax(0, 1fr);
+
+  .note-properties-key {
+    display: none !important;
+  }
+
+  .note-properties-value {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 태그 사이 쉼표 제거 */
+.note-properties-tags {
+  gap: 6px;
+  flex-wrap: wrap;
+
+  .note-properties-separator {
+    display: none !important;
+  }
+}
+
+
 /* ==========================================
    2. Tags
    ========================================== */
@@ -67,16 +91,51 @@ a.internal.tag-link {
   }
 }
 
+
 /* ==========================================
-   3. Graph
+   3. Tag Popover
+   ========================================== */
+
+/* 날짜 숨김 */
+.popover .section .meta {
+  display: none !important;
+}
+
+/* 게시물 목록 레이아웃 */
+.popover .section {
+  display: block !important;
+}
+
+/* 제목 영역 확장 */
+.popover .section .desc {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* 게시물 제목 한 줄 표시 */
+.popover .section .desc h3 a {
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+}
+
+/* 게시물 개수 문구 숨김 */
+.popover .page-listing > p:first-of-type {
+  display: none !important;
+}
+
+
+/* ==========================================
+   4. Graph
    ========================================== */
 
 .graph > .graph-outer {
   border-color: #202020;
 }
 
+
 /* ==========================================
-   4. Explorer
+   5. Explorer
    ========================================== */
 
 @media (min-width: 801px) {
@@ -98,12 +157,100 @@ a.internal.tag-link {
   }
 }
 
+
 /* ==========================================
-   5. Responsive
+   6. Report Table of Contents
+   ========================================== */
+
+/* 목차 전체 영역 */
+.report-toc {
+  display: block;
+  width: 100%;
+  max-width: none;
+
+  /* 목차 항목 전체 클릭 가능 */
+  a.report-toc-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 !important;
+    box-sizing: border-box;
+
+    /* Quartz 기본 링크 스타일 제거 */
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--darkgray) !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    cursor: pointer;
+
+    /* Hover */
+    &:hover {
+      background: transparent !important;
+      background-color: transparent !important;
+      color: var(--darkgray) !important;
+      text-decoration: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* 목차 번호 */
+  .toc-number {
+    flex: 0 0 25px;
+    white-space: nowrap;
+  }
+
+  /* 자동 점선 */
+  .toc-dots {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+    border-bottom: 1px dotted #888;
+  }
+
+  /* 항목명 우측 정렬 */
+  .toc-title {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+
+/* ==========================================
+   7. Scroll Behavior
+   ========================================== */
+
+/* 부드러운 스크롤 비활성화 */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* 목차 이동 시 제목 상단 여백 */
+h1[id],
+h2[id],
+h3[id],
+h4[id] {
+  scroll-margin-top: 30px;
+}
+
+
+/* ==========================================
+   8. Responsive Layout
    ========================================== */
 
 @media (max-width: 600px) {
+
+  /* 모바일 Properties 레이아웃 */
   .note-properties-row {
     grid-template-columns: 6rem minmax(0, 1fr);
   }
+
 }
