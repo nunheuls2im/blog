@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Blog
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -158,7 +158,7 @@ plugins:
   - source: "@quartz-community/explorer"
     enabled: true
     options:
-      title: "Test"
+      title: "nunheuls2im"
     layout:
       position: left
       priority: 50
@@ -227,11 +227,11 @@ plugins:
       position: afterBody
       priority: 10
   - source: "@quartz-community/footer"
-    enabled: true
+    enabled: false
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/nunheuls2im
+        Email: nunheuls2im@gmail.com
     layout:
       position: footer
       priority: 50
