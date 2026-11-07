@@ -1,3 +1,109 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+/* ==========================================
+   1. Note Properties
+   ========================================== */
+
+.note-properties {
+  border: 0;
+  border-radius: 0;
+  margin: 0.75rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.note-properties-header {
+  padding: 0 0 0.4rem;
+  border: 0 !important;
+}
+
+.note-properties-count {
+  display: none;
+}
+
+.note-properties-table,
+.note-properties tbody {
+  display: block;
+  width: 100%;
+}
+
+.note-properties-row {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  border: 0 !important;
+  border-radius: 6px;
+
+  &:hover {
+    background: var(--light);
+  }
+}
+
+.note-properties-key,
+.note-properties-value {
+  display: block;
+  width: auto;
+  padding: 0.4rem 0.5rem;
+  border: 0 !important;
+  vertical-align: middle;
+}
+
+.note-properties-key {
+  color: var(--gray);
+}
+
+/* ==========================================
+   2. Tags
+   ========================================== */
+
+a.internal.tag-link {
+  background-color: #2b2b2b !important;
+  color: #ffffff !important;
+  border-radius: 15px;
+  padding: 4px 8px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #404040 !important;
+    color: #40c463 !important;
+  }
+}
+
+/* ==========================================
+   3. Graph
+   ========================================== */
+
+.graph > .graph-outer {
+  border-color: #202020;
+}
+
+/* ==========================================
+   4. Explorer
+   ========================================== */
+
+@media (min-width: 801px) {
+
+  /* Explorer 제목 화살표 숨김 */
+  .explorer > .desktop-explorer > svg.fold {
+    display: none !important;
+  }
+
+  /* Explorer 제목 클릭 비활성화 */
+  .explorer > .desktop-explorer {
+    pointer-events: none !important;
+    cursor: default;
+  }
+
+  /* Explorer 본문 펼침 상태 유지 */
+  .explorer.collapsed {
+    flex: 0 1 auto !important;
+  }
+}
+
+/* ==========================================
+   5. Responsive
+   ========================================== */
+
+@media (max-width: 600px) {
+  .note-properties-row {
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+}
