@@ -159,6 +159,8 @@ plugins:
     enabled: true
   - source: "@quartz-community/explorer"
     enabled: true
+    options:
+        title: "Test"
     layout:
       position: left
       priority: 50
@@ -272,6 +274,10 @@ plugins:
       enableInteraction: true
       darkMode: auto
       exportPadding: 20
+    order: 50
+  - source: github:quartz-community/explicit-publish
+    enabled: true
+    options: {}
     order: 50
 layout:
   groups:
