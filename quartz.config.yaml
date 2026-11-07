@@ -114,7 +114,7 @@ plugins:
     enabled: true
     options:
       theme: default
-      mode: both
+      mode: dark
   - source: "@quartz-community/remove-draft"
     enabled: true
   - source: "@quartz-community/unlisted-pages"
@@ -158,7 +158,10 @@ plugins:
   - source: "@quartz-community/explorer"
     enabled: true
     options:
-      title: "nunheuls2im"
+      title: "Lists"
+      folderDefaultState: open
+      folderClickBehavior: link
+      useSavedState: true
     layout:
       position: left
       priority: 50
@@ -207,7 +210,7 @@ plugins:
       priority: 30
       group: toolbar
   - source: "@quartz-community/reader-mode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 35
@@ -256,7 +259,7 @@ plugins:
       includedProperties:
         - description
         - tags
-        - aliases
+        - date
       excludedProperties: []
       hidePropertiesView: false
       delimiters: ---
