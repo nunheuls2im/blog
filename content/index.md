@@ -22,19 +22,31 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
 
 ---
 
-## Project 01
+## Project 01.
 
 고가용성 보안 인프라 구축 프로젝트
 
 #### 주요 기술
 
-`pfSense` `HAProxy` `Suricata` `Wazuh` `MariaDB` `ModSecurity` `Docker` `Container`
+`pfSense` `HAProxy` `Suricata` `Wazuh` `MariaDB` `ModSecurity` `Docker` `Container` ..
 
 #### 프로젝트 소개
 
 - pfSense 이중화 및 CARP 기반 고가용성 네트워크 구성
 - HAProxy를 이용한 웹 서버 부하 분산
 - SUricata IDS/IPS 기반 네트워크 보안 정책 적용
+- Wazhu를 이용한 중앙집중형 보안 모니터링 환경 구축
+- 장애 전환 및 접근제어 정책 검증
+
+---
+
+## Project 02.
+
+AWS 기반 클라우드 인프라 및 보안 구성
+
+#### 주요기술
+
+`AWS` `VPC` `EC2` `IAM` `Security Groups` `NACL` `Autoscail`
 
 ---
 
