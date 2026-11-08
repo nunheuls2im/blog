@@ -254,3 +254,24 @@ h4[id] {
   }
 
 }
+
+/* ==========================================
+   Table of Contents
+   ========================================== */
+
+/* 제목과 접기 화살표 제거 */
+.toc > .toc-header {
+  display: none !important;
+}
+
+/* 목차 목록은 항상 펼친 상태로 유지 */
+.toc > .toc-content {
+  display: block !important;
+  max-height: none !important;
+  visibility: visible !important;
+}
+
+/* 접힌 목차의 높이 제한 해제 */
+.toc:has(> .toc-header.collapsed) {
+  flex: 0 1 auto !important;
+}
