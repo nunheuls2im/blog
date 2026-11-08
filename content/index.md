@@ -42,11 +42,17 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
 
 ## Project 02.
 
-AWS 기반 클라우드 인프라 및 보안 구성
+AWS 기반 클라우드 인프라 구축 및 취약점 진단
 
 #### 주요기술
 
-`AWS` `VPC` `EC2` `IAM` `Security Groups` `NACL` `Autoscail`
+`AWS` `VPC` `EC2` `IAM` `Security Groups` `NACL` `Auto Scailing` `RDS` ..
+
+#### 프로젝트 소개
+
+- Docker Container 기반 EC2 인프라 구성
+- KISA 2026 주요정보통신기반시설 기술적 취약점 분석 및 평가방법 상세 가이드 기반 점검
+- Web application, EC2,
 
 ---
 
