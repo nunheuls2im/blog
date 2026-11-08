@@ -46,7 +46,7 @@ AWS 기반 클라우드 인프라 구축 및 AI 자동화 취약점 진단
 
 - Docker Container 기반 EC2 인프라 구성
 - KISA 2026 주요정보통신기반시설 기술적 취약점 분석 및 평가방법 상세 가이드 기반 점검
-- AI를 활용한 자동화 취약점 진단 및 수동 취약점 진단
+- AI를 활용한 자동화 취약점 진단 및 수동 취약점 교차 검증 진단
 - 증적 자료를 포함한 취약점 진단 보고서 작성
 
 ---
@@ -71,11 +71,11 @@ Estsoft 주관 인프라 보안 수강생으로 참여하여 3회 팀 프로젝�
 - Linux 및 네트워크 기반 보안 인프라 교육 지원
 - 실습 환경 구성과 기술적 문제 해결 지원
 - 교육생 질의응답 및 기술 개념 설명
-- 보안 솔루션
+- 네트워크 설계 및 보안 장비 배치 개념 설명
 
 ---
 
-## 자격증
+## License
 
 `Linux Master 2급`
 
@@ -89,6 +89,8 @@ Estsoft 주관 인프라 보안 수강생으로 참여하여 3회 팀 프로젝�
 [Credential](https://credforge.app/credentials/55819bd3-5244-4314-9539-818eac008fe6)
 
 ---
+
+#### Contact
 
 <div style="display: grid; grid-template-columns: 50px 8px auto; gap: 3px; align-items: center;">
   <span>Email</span><span>:</span><span>nunheuls2im@gmail.com</span>
