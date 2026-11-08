@@ -10,7 +10,9 @@ modified: 2026-11-07T08:08:59.869Z
 
 # Welcome to My Security Portfolio
 
-보안 기술 블로그입니다.
+Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으로 보안 기술을 학습하고 실습 프로젝트를 수행하고 있습니다.
+
+고가용성 보안 인프라 구축, 침투 테스트, 취약점 분석 및 대응 방안 수립에 관심이 있으며, 기술적 문제를 분석하고 해결하는 과정을 문서화하고 있습니다.
 
 <div style="display: grid; grid-template-columns: 50px 8px auto; gap: 3px; align-items: center;">
   <span>Email</span><span>:</span><span>nunheuls2im@gmail.com</span>
