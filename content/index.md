@@ -18,7 +18,6 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
   <span>Email</span><span>:</span><span>nunheuls2im@gmail.com</span>
 </div>
 <div style="display:grid;grid-template-columns:50px 8px max-content;column-gap:3px;row-gap:6px;align-items:center;max-width:100%;overflow-x:auto;"><span>GitHub</span><span>:</span><a href="https://github.com/nunheuls2im" target="_blank" rel="noopener noreferrer">https://github.com/nunheuls2im</a></div>
-<div style="height: 30px;"></div>
 
 ---
 
@@ -52,7 +51,21 @@ AWS 기반 클라우드 인프라 구축 및 취약점 진단
 
 - Docker Container 기반 EC2 인프라 구성
 - KISA 2026 주요정보통신기반시설 기술적 취약점 분석 및 평가방법 상세 가이드 기반 점검
-- Web application, EC2,
+- 증적 자료를 포함한 취약점 진단 보고서 작성
+
+---
+
+## Skills
+
+---
+
+## 경험
+
+---
+
+## 자격증
+
+`Linux Master 2급`
 
 ---
 
