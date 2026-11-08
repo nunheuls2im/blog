@@ -20,8 +20,7 @@ modified: 2026-11-07T08:08:59.869Z
 
 ---
 
-### DEADFACE CTF 2026
+### DEADFACE CTF 2026 - 61st of
 
-[[DEADFACE-CTF-2026.png|150]]
-
-[Verify Credential](https://credforge.app/실제-배지-인증-주소)
+![[Template/Image/deadface-ctf-2026-competitor.png|150]]
+[Credential](https://credforge.app/credentials/55819bd3-5244-4314-9539-818eac008fe6)
