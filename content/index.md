@@ -17,3 +17,7 @@ modified: 2026-11-07T08:08:59.869Z
 </div>
 <div style="display:grid;grid-template-columns:50px 8px max-content;column-gap:3px;row-gap:6px;align-items:center;max-width:100%;overflow-x:auto;"><span>GitHub</span><span>:</span><a href="https://github.com/nunheuls2im" target="_blank" rel="noopener noreferrer">https://github.com/nunheuls2im</a></div>
 <div style="height: 30px;"></div>
+
+---
+
+![[Template/Image/deadface-ctf-2026-competitor.png|150]]
