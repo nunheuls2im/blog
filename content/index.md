@@ -22,6 +22,22 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
 
 ---
 
+## Project 01
+
+고가용성 보안 인프라 구축 프로젝트
+
+#### 주요 기술
+
+`pfSense` `HAProxy` `Suricata` `Wazuh` `MariaDB` `ModSecurity` `Docker` `Container`
+
+#### 프로젝트 소개
+
+- pfSense 이중화 및 CARP 기반 고가용성 네트워크 구성
+- HAProxy를 이용한 웹 서버 부하 분산
+- SUricata IDS/IPS 기반 네트워크 보안 정책 적용
+
+---
+
 ### DEADFACE CTF 2026 - 61st of 1758
 
 ![[Template/Image/deadface-ctf-2026-competitor.png|150]]![[Template/Image/Pasted image 20261108154953.png]]
