@@ -20,4 +20,4 @@ modified: 2026-11-07T08:08:59.869Z
 
 ---
 
-![[Template/Image/deadface-ctf-2026-competitor.png|150]]
+[[deadface-ctf-2026-competitor.png|150]]
