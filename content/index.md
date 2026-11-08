@@ -14,11 +14,6 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
 
 고가용성 보안 인프라 구축, 침투 테스트, 취약점 분석 및 대응 방안 수립에 관심이 있으며, 기술적 문제를 분석하고 해결하는 과정을 문서화하고 있습니다.
 
-<div style="display: grid; grid-template-columns: 50px 8px auto; gap: 3px; align-items: center;">
-  <span>Email</span><span>:</span><span>nunheuls2im@gmail.com</span>
-</div>
-<div style="display:grid;grid-template-columns:50px 8px max-content;column-gap:3px;row-gap:6px;align-items:center;max-width:100%;overflow-x:auto;"><span>GitHub</span><span>:</span><a href="https://github.com/nunheuls2im" target="_blank" rel="noopener noreferrer">https://github.com/nunheuls2im</a></div>
-
 ---
 
 ## Project 01.
@@ -41,7 +36,7 @@ Linux 및 Windows 시스템, 네트워크, 클라우드 인프라를 기반으�
 
 ## Project 02.
 
-AWS 기반 클라우드 인프라 구축 및 취약점 진단
+AWS 기반 클라우드 인프라 구축 및 AI 자동화 취약점 진단
 
 #### 주요기술
 
@@ -51,6 +46,7 @@ AWS 기반 클라우드 인프라 구축 및 취약점 진단
 
 - Docker Container 기반 EC2 인프라 구성
 - KISA 2026 주요정보통신기반시설 기술적 취약점 분석 및 평가방법 상세 가이드 기반 점검
+- AI를 활용한 자동화 취약점 진단 및 수동 취약점 진단
 - 증적 자료를 포함한 취약점 진단 보고서 작성
 
 ---
@@ -59,7 +55,11 @@ AWS 기반 클라우드 인프라 구축 및 취약점 진단
 
 ---
 
-## 경험
+## Experience
+
+## 01.
+
+Estsoft 주관 인프라 보안
 
 ---
 
@@ -69,9 +69,16 @@ AWS 기반 클라우드 인프라 구축 및 취약점 진단
 
 ---
 
-### DEADFACE CTF 2026 - 61st of 1758
+## 활동
+
+#### DEADFACE CTF 2026 - 61st of 1758
 
 ![[Template/Image/deadface-ctf-2026-competitor.png|150]]![[Template/Image/Pasted image 20261108154953.png]]
 [Credential](https://credforge.app/credentials/55819bd3-5244-4314-9539-818eac008fe6)
 
 ---
+
+<div style="display: grid; grid-template-columns: 50px 8px auto; gap: 3px; align-items: center;">
+  <span>Email</span><span>:</span><span>nunheuls2im@gmail.com</span>
+</div>
+<div style="display:grid;grid-template-columns:50px 8px max-content;column-gap:3px;row-gap:6px;align-items:center;max-width:100%;overflow-x:auto;"><span>GitHub</span><span>:</span><a href="https://github.com/nunheuls2im" target="_blank" rel="noopener noreferrer">https://github.com/nunheuls2im</a></div>
