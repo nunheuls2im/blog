@@ -20,7 +20,9 @@ modified: 2026-11-07T08:08:59.869Z
 
 ---
 
-### DEADFACE CTF 2026 - 61st of
+### DEADFACE CTF 2026 - 61st of 1758
 
-![[Template/Image/deadface-ctf-2026-competitor.png|150]]
+![[Template/Image/deadface-ctf-2026-competitor.png|150]]![[Template/Image/Pasted image 20261108154953.png]]
 [Credential](https://credforge.app/credentials/55819bd3-5244-4314-9539-818eac008fe6)
+
+---
