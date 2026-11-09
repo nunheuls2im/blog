@@ -5,7 +5,7 @@ created: 2026-11-07T05:59:58.574Z
 modified: 2026-11-07T08:08:59.869Z
 ---
 
-<div style="background-color:#161618;padding:15px;border-radius:8px;"><img src="https://ghchart.xqsit94.in/dark:40c463/nunheuls2im" alt="GitHub Contributions" style="width:100%;"></div>
+<div style="background-color:#161618;padding:15px;border-radius:8px;"><img src="https://contribkit.app/user/nunheuls2im.svg?palette=github&background=transparent" alt="GitHub Contributions" style="width:100%;"></div>
 <div style="height: 30px;"></div>
 
 # Welcome to My Security Portfolio
