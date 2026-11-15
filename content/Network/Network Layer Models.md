@@ -2,7 +2,7 @@
 publish: true
 title: Network Layer Models
 created: 2026-11-15T07:33:07.582Z
-modified: 2026-11-15T08:45:17.282Z
+modified: 2026-11-15T08:51:24.514Z
 tags:
   - Network
   - OSI
@@ -105,7 +105,7 @@ L4 Switch, L4 Load Balancer, Stateful Firewall
 
 ## L4 - Application Layer ( PDU : Data )
 
-> Application이 Network Service를 이용할 수 있도록 통신 Protocol을 제공하며, 데이터 형식 변환, 암호화 및 Session 관리 등의 기능을 포함하여 응용 서비스에 필요한 데이터 교환 수행
+Application이 Network Service를 이용할 수 있도록 통신 Protocol을 제공하며, 데이터 형식 변환, 암호화 및 Session 관리 등의 기능을 포함하여 응용 서비스에 필요한 데이터 교환 수행
 
 #### 네트워크 장비
 
