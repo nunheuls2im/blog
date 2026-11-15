@@ -2,7 +2,7 @@
 publish: true
 title: Network Layer Models
 created: 2026-11-15T07:33:07.582Z
-modified: 2026-11-15T09:02:02.782Z
+modified: 2026-11-15T09:07:21.334Z
 tags:
   - Network
   - OSI
@@ -10,7 +10,9 @@ tags:
 ---
 
 <div style="height: 30px;"></div>
+
 # OSI 7 Layer Model
+
 Open Systems Interconnection Reference Model
 
 > 국제표준화기구인 `ISO`에서 1984년에 발표한 네트워크 통신 구조를 7개의 계층으로 구분한 표준 참조 모델
