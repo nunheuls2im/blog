@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T00:09:38.415Z
+modified: 2026-11-20T00:30:36.862Z
 tags:
   - pentest
   - linux
@@ -184,10 +184,48 @@ Protocol negotiation to server lab22 (for a protocol between LANMAN1 and NT1) fa
 Unable to connect with SMB1 -- no workgroup available
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120092820.png]]
 
 ```
+└─$ rpcclient -U "" -N lab22 -p 139 -c 'enumdomusers'
+user:[scott] rid:[0x3e8]
+
+┌──(kali㉿133)-[~/Desktop/lab/lab22]
+└─$ rpcclient -U "" -N lab22 -p 445 -c 'enumdomusers'
+user:[scott] rid:[0x3e8]
+```
+
+![[Template/Image/Pasted image 20261120093026.png]]
+
+```
+└─$ rpcclient -U "" -N lab22 -p 139 -c 'queryuser 0x3e8'
+	User Name   :	scott
+	Full Name   :	Scott Mercer
+	Home Drive  :	\\ABDUCTED\scott
+	Dir Drive   :	
+	Profile Path:	\\ABDUCTED\scott\profile
+	Logon Script:	
+	Description :	
+	Workstations:	
+	Comment     :	
+	Remote Dial :
+	Logon Time               :	목, 01  1월 1970 09:00:00 KST
+	Logoff Time              :	목, 07  2월 2036 00:06:39 KST
+	Kickoff Time             :	목, 07  2월 2036 00:06:39 KST
+	Password last set Time   :	수, 03  6월 2026 00:16:45 KST
+	Password can change Time :	수, 03  6월 2026 00:16:45 KST
+	Password must change Time:	목, 14  9월 30828 11:48:05 KST
+	unknown_2[0..31]...
+	user_rid :	0x3e8
+	group_rid:	0x201
+	acb_info :	0x00000010
+	fields_present:	0x00ffffff
+	logon_divs:	168
+	bad_password_count:	0x00000000
+	logon_count:	0x00000000
+	padding1[0..7]...
+	logon_hrs[0..21]...
+
 ```
 
 ```
