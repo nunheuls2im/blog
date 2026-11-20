@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T00:30:36.862Z
+modified: 2026-11-20T00:32:28.194Z
 tags:
   - pentest
   - linux
@@ -228,7 +228,30 @@ user:[scott] rid:[0x3e8]
 
 ```
 
+![[Template/Image/Pasted image 20261120093220.png]]
+
 ```
+└─$ rpcclient -U "" -N lab22 -p 139 -c 'netsharegetinfo projects'
+netname: projects
+	remark:	Hartley Group Project Files
+	path:	C:\srv\projects
+	password:	
+	type:	0x0
+	perms:	0
+	max_uses:	-1
+	num_uses:	1
+
+┌──(kali㉿133)-[~/Desktop/lab/lab22]
+└─$ rpcclient -U "" -N lab22 -p 139 -c 'netsharegetinfo transfer'
+netname: transfer
+	remark:	Staff file transfer
+	path:	C:\srv\transfer
+	password:	
+	type:	0x0
+	perms:	0
+	max_uses:	-1
+	num_uses:	1
+
 ```
 
 ```
