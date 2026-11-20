@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T00:06:29.970Z
+modified: 2026-11-20T00:09:38.415Z
 tags:
   - pentest
   - linux
@@ -122,10 +122,66 @@ Nmap done: 1 IP address (1 host up) scanned in 37.32 seconds
 
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120090713.png]]
 
 ```
+└─$ nmap -Pn -p 22,139,445 lab22 -sSCV
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-11-20 09:05 +0900
+Nmap scan report for lab22 (10.129.244.177)
+Host is up (0.087s latency).
+
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 0c:4b:d2:76:ab:10:06:92:05:dc:f7:55:94:7f:18:df (ECDSA)
+|_  256 2d:6d:4a:4c:ee:2e:11:b6:c8:90:e6:83:e9:df:38:b0 (ED25519)
+139/tcp open  netbios-ssn Samba smbd 4
+445/tcp open  netbios-ssn Samba smbd 4
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: ABDUCTED, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb2-time:
+|   date: 2026-11-20T00:04:40
+|_  start_date: N/A
+|_clock-skew: -1m30s
+| smb2-security-mode:
+|   3.1.1:
+|_    Message signing enabled but not required
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.10 seconds
+```
+
+![[Template/Image/Pasted image 20261120090930.png]]
+
+```
+└─$ smbclient -L lab22 -p 139 -N
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	HP-Reception    Printer   Reception printer
+	projects        Disk      Hartley Group Project Files
+	transfer        Disk      Staff file transfer
+	IPC$            IPC       IPC Service (Hartley Group Document Services)
+Reconnecting with SMB1 for workgroup listing.
+smbXcli_negprot_smb1_done: No compatible protocol selected by server.
+Protocol negotiation to server lab22 (for a protocol between LANMAN1 and NT1) failed: NT_STATUS_INVALID_NETWORK_RESPONSE
+Unable to connect with SMB1 -- no workgroup available
+
+┌──(kali㉿133)-[~/Desktop/lab/lab22]
+└─$ smbclient -L lab22 -p 445 -N
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	HP-Reception    Printer   Reception printer
+	projects        Disk      Hartley Group Project Files
+	transfer        Disk      Staff file transfer
+	IPC$            IPC       IPC Service (Hartley Group Document Services)
+Reconnecting with SMB1 for workgroup listing.
+smbXcli_negprot_smb1_done: No compatible protocol selected by server.
+Protocol negotiation to server lab22 (for a protocol between LANMAN1 and NT1) failed: NT_STATUS_INVALID_NETWORK_RESPONSE
+Unable to connect with SMB1 -- no workgroup available
 ```
 
 ```
