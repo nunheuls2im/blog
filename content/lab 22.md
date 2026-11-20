@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T06:08:53.022Z
+modified: 2026-11-20T06:26:38.303Z
 tags:
   - pentest
   - linux
@@ -549,43 +549,11 @@ Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your 
 Last login: Fri Nov 20 05:07:04 2026 from 10.10.14.220
 ```
 
-![[Template/Image/Pasted image 20261120144648.png]]
+![[Template/Image/Pasted image 20261120152636.png]]
 
 ```
-marcus@abducted:~$ find / -type d -writable  2>/dev/null
-/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service
-/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice
-/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/dbus.socket
-/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/gpg-agent-ssh.socket
-/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/init.scope
-/dev/mqueue
-/dev/shm
-/var/crash
-/var/spool/samba
-/var/tmp
+marcus@abducted:~$ find / -type d -group operators -writable 2>/dev/null
 /etc/systemd/system/smbd.service.d
-/proc/3333/task/3333/fd
-/proc/3333/fd
-/proc/3333/map_files
-/home/marcus
-/home/marcus/.ssh
-/home/marcus/.cache
-/tmp
-/tmp/.ICE-unix
-/tmp/.XIM-unix
-/tmp/.X11-unix
-/tmp/.font-unix
-/run/user/1001
-/run/user/1001/gnupg
-/run/user/1001/systemd
-/run/user/1001/systemd/generator.late
-/run/user/1001/systemd/generator.late/xdg-desktop-autostart.target.wants
-/run/user/1001/systemd/units
-/run/user/1001/systemd/propagate
-/run/user/1001/systemd/propagate/.os-release-stage
-/run/user/1001/systemd/inaccessible
-/run/screen
-/run/lock
 ```
 
 ![[Template/Image/Pasted image 20261120144756.png]]
