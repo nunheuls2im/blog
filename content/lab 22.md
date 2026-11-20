@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T02:35:39.203Z
+modified: 2026-11-20T02:45:44.453Z
 tags:
   - pentest
   - linux
@@ -364,10 +364,59 @@ shell_type = unix
 
 ![[Template/Image/Pasted image 20261120113538.png]]
 
-```
-```
+![[Template/Image/Pasted image 20261120114247.png]]
+
+![[Template/Image/Pasted image 20261120114324.png]]
+
+![[Template/Image/Pasted image 20261120114344.png]]
 
 ```
+└─$ rclone reveal HZKAxfnMj-nLm59X9gpcC2ohjQL-WqVT6yRsNw
+iXzvcib3SrpZ
+```
+
+![[Template/Image/Pasted image 20261120114535.png]]
+
+```
+└─$ ssh scott@lab22
+scott@lab22's password:
+Permission denied, please try again.
+scott@lab22's password:
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-124-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Nov 20 02:36:53 AM UTC 2026
+
+  System load:           0.0
+  Usage of /:            58.9% of 5.50GB
+  Memory usage:          12%
+  Swap usage:            0%
+  Processes:             219
+  Users logged in:       0
+  IPv4 address for eth0: 10.129.244.177
+  IPv6 address for eth0: dead:beef::250:56ff:feb9:4295
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+1 update can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
+
+1 additional security update can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Last login: Fri Nov 20 02:36:53 2026 from 10.10.14.220
 ```
 
 ```
