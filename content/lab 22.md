@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T05:10:03.509Z
+modified: 2026-11-20T05:46:50.824Z
 tags:
   - pentest
   - linux
@@ -548,6 +548,8 @@ Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your 
 
 Last login: Fri Nov 20 05:07:04 2026 from 10.10.14.220
 ```
+
+![[Template/Image/Pasted image 20261120144648.png]]
 
 ```
 ```
