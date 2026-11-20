@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T04:19:32.919Z
+modified: 2026-11-20T04:36:28.173Z
 tags:
   - pentest
   - linux
@@ -449,7 +449,15 @@ scott@abducted:~$ cat /etc/samba/shares.conf
    browseable = yes
 ```
 
+![[Template/Image/Pasted image 20261120133626.png]]
+
 ```
+scott@abducted:~$ id marcus; id scott
+uid=1001(marcus) gid=1002(marcus) groups=1002(marcus),1000(operators)
+uid=1000(scott) gid=1001(scott) groups=1001(scott)
+scott@abducted:~$ ls -ld /srv/projects /srv/transfer
+drwxr-x--- 2 scott scott 4096 Oct  9  2025 /srv/projects
+drwxr-xr-x 2 scott scott 4096 Oct  9  2025 /srv/transfer
 ```
 
 ```
