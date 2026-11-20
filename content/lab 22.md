@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T01:11:09.312Z
+modified: 2026-11-20T01:17:30.331Z
 tags:
   - pentest
   - linux
@@ -253,8 +253,6 @@ netname: transfer
 	num_uses:	1
 
 ```
-
-![[Template/Image/Pasted image 20261120101107.png]]
 
 ```
 ```
