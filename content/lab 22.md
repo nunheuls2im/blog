@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T01:17:30.331Z
+modified: 2026-11-20T01:30:05.654Z
 tags:
   - pentest
   - linux
@@ -254,8 +254,17 @@ netname: transfer
 
 ```
 
+![[Template/Image/Pasted image 20261120102846.png]]
+
 ```
+└─$ rpcclient -U '' -N lab22 -c 'enumprinters'
+	flags:[0x800000]
+	name:[\\LAB22\]
+	description:[\\LAB22\,,Reception printer]
+	comment:[Reception printer]
 ```
+
+![[Template/Image/Pasted image 20261120103003.png]]
 
 ```
 ```
