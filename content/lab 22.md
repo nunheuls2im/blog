@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T04:41:38.804Z
+modified: 2026-11-20T05:03:40.694Z
 tags:
   - pentest
   - linux
@@ -486,7 +486,11 @@ smb: \> ls
 
 ```
 
+![[Template/Image/Pasted image 20261120140330.png]]
+
 ```
+└─$ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhiWa1Oj5LSEnfgjsamKS9GgobWuoQLJAkmZBdJTkux kali@133" > /home/kali/Desktop/lab/lab22/authorized_keys; cat /home/kali/Desktop/lab/lab22/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhiWa1Oj5LSEnfgjsamKS9GgobWuoQLJAkmZBdJTkux kali@133
 ```
 
 ```
