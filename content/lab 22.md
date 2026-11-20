@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T01:49:40.388Z
+modified: 2026-11-20T02:21:05.972Z
 tags:
   - pentest
   - linux
@@ -345,6 +345,8 @@ bash: cannot set terminal process group (2070): Inappropriate ioctl for device
 bash: no job control in this shell
 nobody@abducted:/var/spool/samba$
 ```
+
+![[Template/Image/Pasted image 20261120112103.png]]
 
 ```
 ```
