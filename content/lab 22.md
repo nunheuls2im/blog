@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T05:46:50.824Z
+modified: 2026-11-20T05:48:03.638Z
 tags:
   - pentest
   - linux
@@ -552,9 +552,47 @@ Last login: Fri Nov 20 05:07:04 2026 from 10.10.14.220
 ![[Template/Image/Pasted image 20261120144648.png]]
 
 ```
+marcus@abducted:~$ find / -type d -writable  2>/dev/null
+/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service
+/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice
+/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/dbus.socket
+/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/app.slice/gpg-agent-ssh.socket
+/sys/fs/cgroup/user.slice/user-1001.slice/user@1001.service/init.scope
+/dev/mqueue
+/dev/shm
+/var/crash
+/var/spool/samba
+/var/tmp
+/etc/systemd/system/smbd.service.d
+/proc/3333/task/3333/fd
+/proc/3333/fd
+/proc/3333/map_files
+/home/marcus
+/home/marcus/.ssh
+/home/marcus/.cache
+/tmp
+/tmp/.ICE-unix
+/tmp/.XIM-unix
+/tmp/.X11-unix
+/tmp/.font-unix
+/run/user/1001
+/run/user/1001/gnupg
+/run/user/1001/systemd
+/run/user/1001/systemd/generator.late
+/run/user/1001/systemd/generator.late/xdg-desktop-autostart.target.wants
+/run/user/1001/systemd/units
+/run/user/1001/systemd/propagate
+/run/user/1001/systemd/propagate/.os-release-stage
+/run/user/1001/systemd/inaccessible
+/run/screen
+/run/lock
 ```
 
+![[Template/Image/Pasted image 20261120144756.png]]
+
 ```
+marcus@abducted:~$ ls -ld /etc/systemd/system/smbd.service.d/
+drwxrws--- 2 root operators 4096 Jun  4 13:41 /etc/systemd/system/smbd.service.d/
 ```
 
 ```
