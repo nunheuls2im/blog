@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T02:21:05.972Z
+modified: 2026-11-20T02:25:05.973Z
 tags:
   - pentest
   - linux
@@ -346,10 +346,21 @@ bash: no job control in this shell
 nobody@abducted:/var/spool/samba$
 ```
 
-![[Template/Image/Pasted image 20261120112103.png]]
+![[Template/Image/Pasted image 20261120112200.png]]
 
 ```
+nobody@abducted:/var/spool/samba$ ls -al /opt/offsite-backup/rclone.conf
+-rw-r--r-- 1 root root 141 Oct  9  2025 /opt/offsite-backup/rclone.conf
+nobody@abducted:/var/spool/samba$ cat /opt/offsite-backup/rclone.conf
+[offsite]
+type = sftp
+host = backup.hartley-group.internal
+user = svc-backup
+pass = HZKAxfnMj-nLm59X9gpcC2ohjQL-WqVT6yRsNw
+shell_type = unix
 ```
+
+![[Template/Image/Pasted image 20261120112451.png]]
 
 ```
 ```
