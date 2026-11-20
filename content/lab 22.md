@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 22
 created: 2026-11-20T00:02:44.797Z
-modified: 2026-11-20T02:45:44.453Z
+modified: 2026-11-20T04:19:32.919Z
 tags:
   - pentest
   - linux
@@ -419,7 +419,34 @@ To check for new updates run: sudo apt update
 Last login: Fri Nov 20 02:36:53 2026 from 10.10.14.220
 ```
 
+![[Template/Image/Pasted image 20261120131930.png]]
+
 ```
+scott@abducted:~$ cat /etc/samba/shares.conf
+[HP-Reception]
+   comment = Reception printer
+   path = /var/spool/samba
+   printable = yes
+   guest ok = yes
+   print command = /usr/local/bin/printaudit %J %s
+   lpq command = /bin/true
+   lprm command = /bin/true
+
+[projects]
+   comment = Hartley Group Project Files
+   path = /srv/projects
+   valid users = scott
+   read only = no
+   browseable = yes
+
+[transfer]
+   comment = Staff file transfer
+   path = /srv/transfer
+   valid users = scott
+   force user = marcus
+   read only = no
+   wide links = yes
+   browseable = yes
 ```
 
 ```
