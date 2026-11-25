@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T01:26:52.561Z
+modified: 2026-11-25T01:31:49.213Z
 ---
 
 <div style="height: 30px;"></div>
@@ -133,7 +133,27 @@ PORT   STATE SERVICE
 Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
+![[Template/Image/Pasted image 20261125102733.png]]
+
 ```
+└─# nmap -Pn -p- 10.0.7.213 -sSCV
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:26 UTC
+Nmap scan report for 10.0.7.213
+Host is up (0.00012s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 4b:65:84:5e:bf:fa:ce:55:8a:13:0b:f6:ab:cb:57:2e (ECDSA)
+|_  256 e5:85:5e:95:94:55:2e:60:56:e6:36:68:47:e8:50:3e (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+MAC Address: 0A:FF:FE:59:CC:E5 (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.39 seconds
 ```
 
 ```
@@ -393,7 +413,30 @@ PORT   STATE SERVICE
 Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
+![[Template/Image/Pasted image 20261125103139.png]]
+
 ```
+└─# nmap -Pn -p- 10.0.7.221 -sSCV
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:30 UTC
+Nmap scan report for 10.0.7.221
+Host is up (0.00025s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 28:6d:dd:d1:6c:88:56:3b:46:68:11:46:2f:31:91:20 (ECDSA)
+|_  256 de:39:53:f7:41:12:91:2b:a8:4d:80:cf:fe:37:38:c8 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+5984/tcp open  http    CouchDB httpd 1.6.1 (Erlang OTP/17)
+|_http-title: Site doesn't have a title (text/plain; charset=utf-8).
+|_http-server-header: CouchDB/1.6.1 (Erlang OTP/17)
+MAC Address: 0A:FF:D6:8B:8B:9D (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.78 seconds
 ```
 
 ```
