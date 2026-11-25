@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T02:16:19.098Z
+modified: 2026-11-25T02:18:30.281Z
 ---
 
 <div style="height: 30px;"></div>
@@ -219,6 +219,8 @@ Starting gobuster in directory enumeration mode
 Finished
 ===============================================================
 ```
+
+![[Template/Image/Pasted image 20261125111828.png]]
 
 ```
 ```
