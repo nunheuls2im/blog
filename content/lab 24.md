@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T04:06:07.987Z
+modified: 2026-11-25T04:11:02.707Z
 ---
 
 <div style="height: 30px;"></div>
@@ -358,13 +358,36 @@ Finished
 
 ![[Template/Image/Pasted image 20261125130605.png]]
 
-```
-```
+![[Template/Image/Pasted image 20261125130704.png]]
 
 ```
+└─$ file ~/Downloads/corp-creds.xlsx
+/home/kali/Downloads/corp-creds.xlsx: CDFV2 Encrypted
 ```
 
+![[Template/Image/Pasted image 20261125130953.png]]
+
 ```
+└─$ office2john ~/Downloads/corp-creds.xlsx > ~/Desktop/lab/lab24/corp-creds.xlsx.
+hash; cat ~/Desktop/lab/lab24/corp-creds.
+xlsx.hash
+corp-creds.xlsx:$office$*2007*20*128*16*c460544a789c7c458442377548d04b36*5c4af8b6728c008323e389a98571ee8c*04ba60dcd751b2d434fa049b8f9505e651a88d25
+```
+
+![[Template/Image/Pasted image 20261125131053.png]]
+
+```
+└─$ john --wordlist=~/Desktop/rockyou.txt corp-creds.xlsx.hash
+Using default input encoding: UTF-8
+Loaded 1 password hash (Office, 2007/2010/2013 [SHA1 256/256 AVX2 8x / SHA512 256/256 AVX2 4x AES])
+Cost 1 (MS Office version) is 2007 for all loaded hashes
+Cost 2 (iteration count) is 50000 for all loaded hashes
+Will run 6 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+genesis          (corp-creds.xlsx)
+1g 0:00:00:00 DONE (2026-11-25 11:45) 6.250g/s 3300p/s 3300c/s 3300C/s marie..soccer1
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
 ```
 
 ```
