@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T00:59:34.868Z
+modified: 2026-11-25T01:26:52.561Z
 ---
 
 <div style="height: 30px;"></div>
@@ -89,9 +89,48 @@ modified: 2026-11-25T00:59:34.868Z
 
 ### 증적 자료 및 취약점 1
 
-![[Template/Image/Pasted image 20261125095807.png]]
+![[Template/Image/Pasted image 20261125102330.png]]
 
 ```
+└─# nmap -sS 10.0.7.208/28
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:16 UTC
+Nmap scan report for 10.0.7.209
+Host is up (0.000082s latency).
+All 1000 scanned ports on 10.0.7.209 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 0A:FF:C1:DB:3C:C5 (Unknown)
+
+Nmap scan report for 10.0.7.213
+Host is up (0.00010s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:FE:59:CC:E5 (Unknown)
+
+Nmap scan report for 10.0.7.218
+Host is up (0.00027s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: 0A:FF:C5:D3:51:67 (Unknown)
+
+Nmap scan report for 10.0.7.221
+Host is up (0.00019s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:D6:8B:8B:9D (Unknown)
+
+Nmap scan report for 10.0.7.216
+Host is up (0.0000040s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
 ```
@@ -180,9 +219,48 @@ modified: 2026-11-25T00:59:34.868Z
 
 ### 증적 자료 및 취약점 2
 
-![[Template/Image/Pasted image 20261125095824.png]]
+![[Template/Image/Pasted image 20261125102505.png]]
 
 ```
+└─# nmap -sS 10.0.7.208/28
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:16 UTC
+Nmap scan report for 10.0.7.209
+Host is up (0.000082s latency).
+All 1000 scanned ports on 10.0.7.209 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 0A:FF:C1:DB:3C:C5 (Unknown)
+
+Nmap scan report for 10.0.7.213
+Host is up (0.00010s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:FE:59:CC:E5 (Unknown)
+
+Nmap scan report for 10.0.7.218
+Host is up (0.00027s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: 0A:FF:C5:D3:51:67 (Unknown)
+
+Nmap scan report for 10.0.7.221
+Host is up (0.00019s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:D6:8B:8B:9D (Unknown)
+
+Nmap scan report for 10.0.7.216
+Host is up (0.0000040s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
 ```
@@ -271,191 +349,48 @@ modified: 2026-11-25T00:59:34.868Z
 
 ### 증적 자료 및 취약점 3
 
-![[Template/Image/Pasted image 20261125095932.png]]
+![[Template/Image/Pasted image 20261125102413.png]]
 
 ```
-```
+└─# nmap -sS 10.0.7.208/28
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:16 UTC
+Nmap scan report for 10.0.7.209
+Host is up (0.000082s latency).
+All 1000 scanned ports on 10.0.7.209 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 0A:FF:C1:DB:3C:C5 (Unknown)
 
-```
-```
+Nmap scan report for 10.0.7.213
+Host is up (0.00010s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:FE:59:CC:E5 (Unknown)
 
-```
-```
+Nmap scan report for 10.0.7.218
+Host is up (0.00027s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+MAC Address: 0A:FF:C5:D3:51:67 (Unknown)
 
-```
-```
+Nmap scan report for 10.0.7.221
+Host is up (0.00019s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 0A:FF:D6:8B:8B:9D (Unknown)
 
-```
-```
+Nmap scan report for 10.0.7.216
+Host is up (0.0000040s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
 
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-### 증적 자료 및 취약점 4
-
-![[Template/Image/Pasted image 20261125095918.png]]
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-```
-```
-
-### 증적 자료 및 취약점 5
-
-![[Template/Image/Pasted image 20261125095905.png]]
-
-```
+Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
 ```
