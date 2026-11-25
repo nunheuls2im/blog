@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T01:31:49.213Z
+modified: 2026-11-25T01:51:37.118Z
 ---
 
 <div style="height: 30px;"></div>
@@ -133,7 +133,7 @@ PORT   STATE SERVICE
 Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
-![[Template/Image/Pasted image 20261125102733.png]]
+![[Template/Image/Pasted image 20261125105135.png]]
 
 ```
 └─# nmap -Pn -p- 10.0.7.213 -sSCV
@@ -283,8 +283,28 @@ PORT   STATE SERVICE
 Nmap done: 16 IP addresses (5 hosts up) scanned in 7.27 seconds
 ```
 
+![[Template/Image/Pasted image 20261125104753.png]]
+
 ```
+└─# nmap -Pn -p- 10.0.7.218
+Starting Nmap 7.94 ( https://nmap.org ) at 2026-11-25 01:42 UTC
+Nmap scan report for 10.0.7.218
+Host is up (0.00034s latency).
+Not shown: 65528 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+21/tcp    open  ftp
+80/tcp    open  http
+49664/tcp open  unknown
+49665/tcp open  unknown
+49666/tcp open  unknown
+49670/tcp open  unknown
+49674/tcp open  unknown
+MAC Address: 0A:FF:C5:D3:51:67 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 191.81 seconds
 ```
+
+![[Template/Image/Pasted image 20261125104946.png]]
 
 ```
 ```
