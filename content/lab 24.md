@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T02:18:30.281Z
+modified: 2026-11-25T02:25:11.671Z
 ---
 
 <div style="height: 30px;"></div>
@@ -220,9 +220,104 @@ Finished
 ===============================================================
 ```
 
-![[Template/Image/Pasted image 20261125111828.png]]
+![[Template/Image/Pasted image 20261125112413.png]]
+![[Template/Image/Pasted image 20261125112440.png]]
+![[Template/Image/Pasted image 20261125112458.png]]
 
 ```
+└─# wpscan --url 10.0.7.213/blog
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.24
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://10.0.7.213/blog/ [10.0.7.213]
+[+] Started: Wed Nov 25 02:19:47 2026
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.52 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://10.0.7.213/blog/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://10.0.7.213/blog/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://10.0.7.213/blog/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://10.0.7.213/blog/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 6.4.1 identified (Insecure, released on 2023-11-09).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://10.0.7.213/blog/?feed=rss2, <generator>https://wordpress.org/?v=6.4.1</generator>
+ |  - http://10.0.7.213/blog/?feed=comments-rss2, <generator>https://wordpress.org/?v=6.4.1</generator>
+
+[+] WordPress theme in use: twentytwentyfour
+ | Location: http://10.0.7.213/blog/wp-content/themes/twentytwentyfour/
+ | Last Updated: 2026-05-20T00:00:00.000Z
+ | Readme: http://10.0.7.213/blog/wp-content/themes/twentytwentyfour/readme.txt
+ | [!] The version is out of date, the latest version is 1.5
+ | [!] Directory listing is enabled
+ | Style URL: http://10.0.7.213/blog/wp-content/themes/twentytwentyfour/style.css
+ | Style Name: Twenty Twenty-Four
+ | Style URI: https://wordpress.org/themes/twentytwentyfour/
+ | Description: Twenty Twenty-Four is designed to be flexible, versatile and applicable to any website. Its collecti...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 1.0 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://10.0.7.213/blog/wp-content/themes/twentytwentyfour/style.css, Match: 'Version: 1.0'
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:00 <====================================================> (137 / 137) 100.00% Time: 00:00:00
+
+[i] No Config Backups Found.
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Wed Nov 25 02:19:53 2026
+[+] Requests Done: 169
+[+] Cached Requests: 5
+[+] Data Sent: 43.134 KB
+[+] Data Received: 293.739 KB
+[+] Memory used: 278.703 MB
+[+] Elapsed time: 00:00:05
 ```
 
 ```
