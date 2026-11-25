@@ -2,7 +2,7 @@
 publish: true
 title: 모의해킹 보고서 – Lab 24
 created: 2026-11-25T00:14:46.164Z
-modified: 2026-11-25T02:25:11.671Z
+modified: 2026-11-25T04:06:07.987Z
 ---
 
 <div style="height: 30px;"></div>
@@ -320,8 +320,43 @@ Interesting Finding(s):
 [+] Elapsed time: 00:00:05
 ```
 
+![[Template/Image/Pasted image 20261125130405.png]]
+
 ```
+└─# gobuster dir -u http://10.0.7.213/blog -w ~/common.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.0.7.213/blog
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /root/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.hta                 (Status: 403) [Size: 275]
+/.htpasswd            (Status: 403) [Size: 275]
+/_backup              (Status: 301) [Size: 315] [--> http://10.0.7.213/blog/_backup/]
+/.htaccess            (Status: 403) [Size: 275]
+/index.php            (Status: 301) [Size: 0] [--> http://10.0.7.213/blog/]
+/wordpress            (Status: 301) [Size: 317] [--> http://10.0.7.213/blog/wordpress/]
+/wp-admin             (Status: 301) [Size: 316] [--> http://10.0.7.213/blog/wp-admin/]
+/wp-content           (Status: 301) [Size: 318] [--> http://10.0.7.213/blog/wp-content/]
+/wp-includes          (Status: 301) [Size: 319] [--> http://10.0.7.213/blog/wp-includes/]
+/xmlrpc.php           (Status: 405) [Size: 42]
+
+===============================================================
+Finished
+===============================================================
 ```
+
+![[Template/Image/Pasted image 20261125130442.png]]
+
+![[Template/Image/Pasted image 20261125130605.png]]
 
 ```
 ```
